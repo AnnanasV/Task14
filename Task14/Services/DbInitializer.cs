@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Task14.Models;
+﻿using Task14.Models;
 
 namespace Task14.Services
 {
@@ -60,6 +55,28 @@ namespace Task14.Services
                 };
 
                 context.Comments.AddRange(comments);
+                context.SaveChanges();
+
+                var ratings = new List<Rating>
+                {
+                    new Rating
+                    {
+                        ArticleID = 1,
+                        Value = 5
+                    },
+                    new Rating
+                    {
+                        ArticleID = 1,
+                        Value = 3
+                    },
+                    new Rating
+                    {
+                        ArticleID = 1,
+                        Value = 5
+                    }
+                };
+
+                context.Ratings.AddRange(ratings);
                 context.SaveChanges();
             }
         }
